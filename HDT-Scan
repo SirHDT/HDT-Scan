@@ -2,19 +2,19 @@ import subprocess
 
 def nmap_scan(target, ports):
     try:
-        # Executa o comando nmap
+        # Execute the nmap command
         result = subprocess.run(['nmap', '-sV', '-p', ports, target], capture_output=True, text=True)
-        # Exibe a saida do comando
-        print("Saida do Nmap")
+        # Display the command output
+        print("Nmap Output:")
         print(result.stdout)
     except FileNotFoundError:
-        print("Nmap nao encontrado. Por favor, instale o Nmap no seu sistema.")
+        print("Nmap not found. Please install Nmap on your system.")
 
 def rustscan(target):
     try:
-        # Executa o comando rustscan
+        # Execute the rustscan command
         process = subprocess.Popen(['rustscan', '-b', '2000', '-a', target, '-u' '1900'], stdout=subprocess.PIPE, text=True)
-        # Exibe a saida em tempo real enquanto o processo esta em execucao
+        # Display the output in real-time while the process is running
         while True:
             output = process.stdout.readline()
             if output == '' and process.poll() is not None:
@@ -22,16 +22,16 @@ def rustscan(target):
             if output:
                 print(output.strip())
         
-        # Espera o processo terminar e pega o codigo de retorno
+        # Wait for the process to finish and get the return code
         process.wait()
     except FileNotFoundError:
-        print("Rustscan nao encontrado. Por favor, instale o Rustscan no seu sistema.")
+        print("Rustscan not found. Please install Rustscan on your system.")
 
 def gobuster(target, port):
     try:
-        # Executa o comando gobuster
+        # Execute the gobuster command
         proc = subprocess.Popen(['gobuster', 'dir', '-u', f'http://{target}:{port}', '-w' '/usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt'], stdout=subprocess.PIPE, text=True)
-        # Exibe a saida em tempo real enquanto o processo esta em execucao
+        # Display the output in real-time while the process is running
         while True:
             output = proc.stdout.readline()
             if output == '' and proc.poll() is not None:
@@ -39,10 +39,10 @@ def gobuster(target, port):
             if output:
                 print(output.strip())
         
-        # Espera o processo terminar e pega o codigo de retorno
+        # Wait for the process to finish and get the return code
         proc.wait()
     except FileNotFoundError:
-        print("gobuster nao encontrado. Por favor, instale o gobuster no seu sistema.")
+        print("Gobuster not found. Please install Gobuster on your system.")
 
 def main():
     print("HDT Scan!")

@@ -27,10 +27,10 @@ def rustscan(target):
     except FileNotFoundError:
         print("Rustscan not found. Please install Rustscan on your system.")
 
-def gobuster(target, port):
+def gobuster(target, port, wordlist):
     try:
         # Execute the gobuster command
-        proc = subprocess.Popen(['gobuster', 'dir', '-u', f'http://{target}:{port}', '-w' '/usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt'], stdout=subprocess.PIPE, text=True)
+        proc = subprocess.Popen(['gobuster', 'dir', '-u', f'http://{target}:{port}', '-w', wordlist], stdout=subprocess.PIPE, text=True)
         # Display the output in real-time while the process is running
         while True:
             output = proc.stdout.readline()
@@ -51,7 +51,8 @@ def main():
     ports = input("Ports: ")
     nmap_scan(target, ports)
     port = input("Web Port: ")
-    gobuster(target, port)
+    wordlist = input("Enter custom wordlist path: ")
+    gobuster(target, port, wordlist)
 
 if __name__ == "__main__":
     main()

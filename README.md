@@ -14,15 +14,15 @@ Make sure you have the following tools installed on your system:
 
 1. Clone this repository:
 ```
-git clone https://github.com/your-user/hdt-scan.git
+git clone https://github.com/SirHDT/HDT-Scan.git
 ```
 2. Navigate to the project directory:
 ```
-cd hdt-scan
+cd HDT-Scan
 ```
 3. Run the Python script:
 ```
-python hdt_scan.py
+python HDT-Scan
 ```
 4. Follow the instructions provided in the console to input the target IP and ports (if required).
 
@@ -30,7 +30,7 @@ python hdt_scan.py
 
 - rustscan(target, ports): Conducts a fast port scan using RustScan.
 - nmap_scan(target): Performs a port and service scan on the specified target using Nmap.
-- gobuster(target, port): Performs directory and file enumeration on a web server using Gobuster.
+- gobuster(target, port, wordlist): Performs directory and file enumeration on a web server using Gobuster.
 
 ## Example Usage
 
@@ -43,7 +43,7 @@ Ports: 22,80,445,????
 # nmap_scan(target, ports)
 
 Web Port: 80
-# gobuster(target, port)
+# gobuster(target, port, wordlist)
 ```
 
 ## Notes

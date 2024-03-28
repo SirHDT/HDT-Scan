@@ -43,6 +43,7 @@ Ports: 22,80,445,????
 # nmap_scan(target, ports)
 
 Web Port: 80
+Enter Custom wordlist path: /usr/share/wordlist/???
 # gobuster(target, port, wordlist)
 ```
 

@@ -6,6 +6,7 @@ This is a Python program that automates the execution of various network scannin
 
 Make sure you have the following tools installed on your system:
 
+- Python
 - RustScan
 - Nmap
 - Gobuster

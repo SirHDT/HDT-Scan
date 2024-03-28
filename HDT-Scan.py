@@ -48,8 +48,10 @@ def main():
     print("HDT Scan!")
     target = input("Target IP: ")
     rustscan(target)
-    ports = input("Ports: ")
-    nmap_scan(target, ports)
+    skip_nmap = input("Do you want to skip Nmap scan and proceed directly to Gobuster? (Y/N): ").lower() == 'y'
+    if not skip_nmap:
+        ports = input("Ports: ")
+        nmap_scan(target, ports)
     port = input("Web Port: ")
     wordlist = input("Enter custom wordlist path: ")
     gobuster(target, port, wordlist)

@@ -1,6 +1,6 @@
 # HDT Scan
 
-This is a Python program that automates the execution of various network scanning tool commands, such as rustscan, nmap, and gobuster. It simplifies the process of vulnerability assessment and information discovery on a specific target.
+This is a Python script that automates the execution of various network scanning tool commands, such as rustscan, nmap, and gobuster. It simplifies the process of vulnerability assessment and information discovery on a specific target.
 
 ## Prerequisites
 
